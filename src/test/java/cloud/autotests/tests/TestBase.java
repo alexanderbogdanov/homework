@@ -1,8 +1,10 @@
 package cloud.autotests.tests;
 
+import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Feature;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static cloud.autotests.helpers.AttachmentsHelper.*;
 import static cloud.autotests.helpers.BrowserstackHelper.getBSPublicLink;
@@ -23,6 +25,13 @@ public class TestBase {
     public static void beforeAll() {
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         configureSelenide();
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+
+        Configuration.browserCapabilities = capabilities;
+//        Configuration.remote = "https://" + System.getProperty("selenoid_url") + ":4444/wd/hub/";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub/";
     }
 
     @AfterEach
