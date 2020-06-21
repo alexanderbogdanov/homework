@@ -78,6 +78,12 @@ tasks.withType(Test) {
     }
 }
 
+task yandex_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'yandex'
+    }
+}
+
 task web(type: Test) {
     useJUnitPlatform {
         includeTags 'web'

@@ -25,17 +25,18 @@ public class TestBase {
     public static void beforeAll() {
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         configureSelenide();
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("enableVNC", true);
+//        capabilities.setCapability("enableVideo", true);
+//
+//        Configuration.browserCapabilities = capabilities;
+//        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub/";
+        //        Configuration.remote = "https://" + System.getProperty("selenoid_url") + ":4444/wd/hub/";
 
-        Configuration.browserCapabilities = capabilities;
-//        Configuration.remote = "https://" + System.getProperty("selenoid_url") + ":4444/wd/hub/";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub/";
     }
 
     @AfterEach
-    public void afterEach(){
+    public void afterEach() {
         String sessionId = getSessionId();
 
         attachScreenshot("Last screenshot");

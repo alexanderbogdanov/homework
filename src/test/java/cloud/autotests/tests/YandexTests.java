@@ -1,4 +1,4 @@
-package cloud.autotests.tests.web;
+package cloud.autotests.tests;
 
 import cloud.autotests.pages.YandexPage;
 import cloud.autotests.tests.TestBase;
